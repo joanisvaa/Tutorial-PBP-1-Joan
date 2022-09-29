@@ -1,25 +1,62 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
-<b>{{nama}}</b>
+<style>
+   body {
+    background-color: #bdfeff;
+   }
+   .primary-heading {
+    font-family: Times;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: none;
+    color: #0000ff;
+   }
+   .heading{
+    font-family: Times;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: none;
+    color: #000;
+   }
+</style>
 
-<table>
-    <tr>
-    <th>Nama Barang</th>
-    <th>Harga Barang</th>
-    <th>Deskripsi</th>
-    </tr>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for barang in list_barang %}
-    <tr>
-        <th>{{barang.nama_barang}}</th>
-        <th>{{barang.harga_barang}}</th>
-        <th>{{barang.deskripsi}}</th>
-    </tr>
-{% endfor %}
-</table>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+<nav class="navbar navbar-dark bg-primary">
+        <b class="navbar-brand" style = "color:#0000ff; margin-left: 10px; margin-right: 1100px">Joan Isva Shanti Andrea</b>
+        <button><a href = "{% url 'wishlist:logout' %}">Logout</a></button>
+      </nav>
+
+<body>
+    <div ALIGN = 'center'>
+        <div class = header>
+            <h1 class = "primary-heading">Nama:</h1>
+            <h1 class = "primary-heading">{{nama}}</h1>
+        </div>
+    
+        <table>
+            <tr>
+            <div class = header>
+                <th class = "heading">Nama Barang</th>
+                <th class = "heading">Harga Barang</th>
+                <th class = "heading">Deskripsi</th>
+            </div>
+            </tr>
+            {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+            {% for barang in list_barang %}
+            <tr>
+                <th>{{barang.nama_barang}}</th>
+                <th>{{barang.harga_barang}}</th>
+                <th>{{barang.deskripsi}}</th>
+            </tr>
+        {% endfor %}
+        </table>
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
+    </div>
+</body>
+
 
 {% endblock content %}

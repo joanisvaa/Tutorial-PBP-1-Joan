@@ -5,41 +5,62 @@
 {% endblock meta %}
 
 {% block content %}
+<style>
+    body {
+     background-color: #bdfeff;
+    }
+    .primary-header {
+     font-family: Times;
+     font-size: 14px;
+     font-style: normal;
+     font-weight: bold;
+     text-decoration: none;
+     text-transform: none;
+     color: #0000ff;
+     /* background-color: #03a8ab; */
+    }
+ </style>
 
-<div class = "login">
+<nav class="navbar navbar-dark bg-primary">
+    <b class="navbar-brand" style = "color:#0000ff; margin-left: 10px; margin-right: 700px">Joan Isva Shanti Andrea</b>
+      </nav>
 
-    <h1>Login</h1>
+<body>
+    <div class = "login">
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+        <h1>Login</h1>
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                </tr>
+                        
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                </tr>
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Belum mempunyai akun? <a href="{% url 'wishlist:register' %}">Buat Akun</a>
+                <tr>
+                    <td></td>
+                    <td><input class="btn login_btn" type="submit" value="Login"></td>
+                </tr>
+            </table>
+        </form>
 
-</div>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}     
+            
+        Belum mempunyai akun? <a href="{% url 'wishlist:register' %}">Buat Akun</a>
+
+    </div>
+</body>
 
 {% endblock content %}
